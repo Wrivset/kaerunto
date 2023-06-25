@@ -1,0 +1,242 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;600&family=Montserrat+Alternates:wght@400;500;600&display=swap');
+
+@font-face {
+  font-family: "Zuwun";
+  src: url(/Zuwun_Banjonni.ttf);
+}
+
+:root {
+  --rotdeg: 36deg;
+  --count: 100%;
+}
+
+* {
+
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Comfortaa", "Montserrat Alternatives", sans-serif, serif;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -ms-user-select: none;
+
+}
+body{
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(var(--rotdeg), #fdbaff, #c28dff, #b4ddff, #ccffd4, #fbffc1, #ffe4b3, #ffbebe);
+  background-size: 400% 400%;
+  animation-name: gradient;
+  animation-duration: 300s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.languages{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #fff;
+  padding: 10px 15px 10px;
+  border-radius: 5px;
+  visibility: "visible";
+}
+.wrapper{
+  width: 450px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+}
+.wrapper header{
+  display: flex;
+  align-items: center;
+  padding: 25px 30px 10px;
+  justify-content: space-between;
+}
+header .icons{
+  display: flex;
+  color: #878787;
+}
+header .icons span{
+  height: 38px;
+  width: 38px;
+  margin: 0 1px;
+  cursor: pointer;
+  text-align: center;
+  line-height: 38px;
+  font-size: 1.9rem;
+  user-select: none;
+  border-radius: 50%;
+}
+.icons span:last-child{
+  margin-right: -10px;
+}
+header .icons span:hover{
+  background: #f2f2f2;
+  -moz-transition: all .15s ease-in;
+  -o-transition: all .15s ease-in;
+  -webkit-transition: all .15s ease-in;
+  transition: all .15s ease-in;
+}
+header .current-date{
+  font-size: 1.45rem;
+  font-weight: 500;
+}
+
+.calendar{
+  padding: 10px;
+}
+.calendar ul{
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  text-align: center;
+}
+.calendar li{
+  color: #333;
+  width: calc(100% / 7);
+  font-size: 1.07rem;
+}
+.calendar .weeks li{
+  font-weight: 500;
+  cursor: default;
+}
+.calendar .days li{
+  z-index: 1;
+  cursor: pointer;
+  position: relative;
+  margin-top: 30px;
+}
+.days li.inactive{
+  color: #aaa;
+  -moz-transition: all .15s ease-in;
+  -o-transition: all .15s ease-in;
+  -webkit-transition: all .15s ease-in;
+  transition: all .15s ease-in;
+}
+.days li.active{
+  color: #fff;
+  -moz-transition: all .15s ease-in;
+  -o-transition: all .15s ease-in;
+  -webkit-transition: all .15s ease-in;
+  transition: all .15s ease-in;
+}
+.days li::before{
+  position: absolute;
+  content: "";
+  left: 50%;
+  top: 50%;
+  height: 40px;
+  width: 40px;
+  z-index: -1;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+.days li.active::before{
+  background: #b154d6;
+  -moz-transition: all .15s ease-in;
+  -o-transition: all .15s ease-in;
+  -webkit-transition: all .15s ease-in;
+  transition: all .15s ease-in;
+}
+
+.days li.active:hover::before{
+  background: #9543b6;
+  -moz-transition: all .15s ease-in;
+  -o-transition: all .15s ease-in;
+  -webkit-transition: all .15s ease-in;
+  transition: all .15s ease-in;
+}
+
+.days li:not(.active):hover::before{
+  background: #f2f2f2;
+  -moz-transition: all .15s ease-in;
+  -o-transition: all .15s ease-in;
+  -webkit-transition: all .15s ease-in;
+  transition: all .15s ease-in;
+}
+
+.今天wrapper{
+  width: 450px;
+  background: #fff;
+  border-radius: 10px;
+  padding: 25px 30px 10px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+}
+
+#头 {
+
+  font-size: 1.45rem;
+  font-weight: 500;  
+
+}
+
+.periodselector {
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px;
+
+}
+
+#終日ですか {
+
+  color: #777777;
+  border-color: #878787;
+  border-radius: 10px;
+  height: 36px;
+  width: 100px;
+
+}
+
+#startandend {
+  display: grid;
+  padding-left: 50px;
+}
+
+.feetbuttons {
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 25px;
+
+}
+
+.createevent, .activatepomodoro {
+
+  color: #777777;
+  border-color: #878787;
+  border-radius: 10px;
+  height: 36px;
+  width: 100px;
+
+}
+
+.ぽもどろwrapper{
+  width: 450px;
+  background: #fff;
+  border-radius: 10px;
+  padding: 25px 30px 10px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+}
+
+#pomocircle {
+  width:30vmin;
+  height:30vmin; 
+  border:1vh  solid transparent;
+  border-radius:50%;
+  background:linear-gradient(var(--rotdeg), #c28dff, #b4ddff) content-box no-repeat,
+             conic-gradient(#808080 var(--count), 0, #fff) border-box;
+             
+}

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+
+  <head>
+    <meta charset="utf-8">
+    <title>Calendar</title>
+    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  </head>
+
+  <body>
+
+    <div class = "languages">
+      <ul>
+        <li id = "en" onclick = "changeLang(this.id)" > English </li>
+        <li id = "zh" onclick = "changeLang(this.id)" > 中文 </li>
+        <li id = "ni" onclick = "changeLang(this.id)" > 日本語 </li>
+        <li id = "th" onclick = "changeLang(this.id)" > ภาษาไทย </li>
+        <li id = "zu" onclick = "changeLang(this.id)" > Suyin </li>
+        <li id = "fr" onclick = "changeLang(this.id)" > Français </li>
+        <li id = "nob" onclick = "changeLang(this.id)" > Norsk ( Bokmål ) </li>
+      </ul>
+    </div>
+
+    <div class="wrapper">
+      <header>
+        <p class="current-date"></p>
+        <div class="icons">
+          <span id="prev" class="material-symbols-rounded">chevron_left</span>
+          <span id="next" class="material-symbols-rounded">chevron_right</span>
+          <span id="lang" class="material-symbols-rounded" onclick = "changeV()">Language</span>
+        </div>
+      </header>
+      <div class="calendar">
+        <ul class="weeks"></ul>
+        <ul class="days"></ul>
+      </div>
+      <div class = "feetbuttons">
+        <button class = "createevent" onclick = "makeEvent(true)">Create Event</button>
+        <button class = "activatepomodoro" onclick = "开pomodoro()">Pomodoro</button>  
+      </div>
+    </div>
+
+    <div class = "今天">
+      <div class = "今天wrapper">
+        <div class = "今天header">
+          <span id="closeeventmaker" class="material-symbols-rounded" onclick = "makeEvent(false)">cancel</span>
+          <input type = "text" placeholder = "Name Event" id = "头" required>
+          <span id="saveeventdetails" class="material-symbols-rounded" onclick = "saveEvent()">check_circle</span>
+        </div>
+        <input type = "text" placeholder = "Add Description" id = "尾">
+        <div class = "days摆美">
+          <input type = "date" id = "start">
+          <input type = "date" id = "end">
+        </div>
+        <div class = "periodselector">
+          <div id = "wholedaysan">
+            <button id = "終日ですか" onclick = "wholeday()">Whole Day</button>
+          </div>
+          <hr width="1" size="50" />
+          <div id = "startandend">
+            <input type = "time" id = "starttime" name = "start" min = "00:00" max = "23:59" required>
+            <input type = "time" id = "endtime" name = "start" min = "00:00" max = "23:59" required>
+          </div>
+        </div>
+        Reminders
+        <button id = "加提醒" onclick = "addReminder()">Add reminder</button>
+        <div class = "eventreminders"> </div>
+      </div>
+    </div>
+
+    <div class = "pomodoro">
+      <div class = "ぽもどろwrapper">
+        <div id="pomocircle">
+          <p>25:00</p>
+        </div>
+        <button id = "pstart" onclick = 'timer("开始")'>Start timer</button>
+        <button id = "ppause" onclick = 'timer("停止")'>Pause timer</button>
+      </div>
+    </div>
+
+    <script src="index.js" defer></script>
+  </body>
+
+</html>
