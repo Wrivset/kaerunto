@@ -50,6 +50,26 @@ body{
   border-radius: 5px;
   visibility: "visible";
 }
+.settings{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #fff;
+  padding: 10px 15px 10px;
+  border-radius: 5px;
+  visibility: "visible";
+}
+
+.view{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #fff;
+  padding: 10px 15px 10px;
+  border-radius: 5px;
+  visibility: "visible";
+}
+
 .wrapper{
   width: 450px;
   background: #fff;
