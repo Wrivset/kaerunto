@@ -48,6 +48,10 @@ let pisscount = 1;
 let shitecount = 1;
 let pedocount = 100;
 let pomocount = 1;
+let workminutesinput = 25;
+let restminutesinput = 5;
+
+let headview = document.getElementById("overhead");
 
 let performancestandard = 1; // 👀 ooo new feature coming up
 
@@ -120,16 +124,18 @@ function makeEvent(何) {
     if (何 == true) {
         まけえふぇんと = 何;
     } else {
-        startSelect.value = "";
-        endSelect.value = "";
-        document.querySelector("#头").value = "";
-        document.querySelector("#尾").value = "";
-        document.querySelector("#終日ですか").value = null;
-        document.querySelector("#starttime").value = "--;--";
-        document.querySelector("#endtime").value = "--:--";
-        document.querySelector(".eventreminders").innerHTML = "";
-        まけえふぇんと = false;
-        callcount = 1;
+        if (confirm("Are you sure about this? This will delete your event data.") == true ) {
+            startSelect.value = "";
+            endSelect.value = "";
+            document.querySelector("#头").value = "";
+            document.querySelector("#尾").value = "";
+            document.querySelector("#終日ですか").value = null;
+            document.querySelector("#starttime").value = "--;--";
+            document.querySelector("#endtime").value = "--:--";
+            document.querySelector(".eventreminders").innerHTML = "";
+            まけえふぇんと = false;
+            callcount = 1;
+        }
     }
 
 }
@@ -206,7 +212,8 @@ $( ".days" ).on( "click", "li", function() {
 
     } else {
 
-
+        console.log($(this).attr("id") + currentDate.innerHTML);
+        headview.innerHTML = $(this).attr("id") + currentDate.innerHTML;
 
     }
 
@@ -418,12 +425,12 @@ function timer(nani) {
         brr = setInterval(function() {
 
             cssroot.style.setProperty('--count', pedocount + "%");
-            pedocount -= 1/15;
+            pedocount -= 100 / workminutesinput * 60;
             console.log(pomocount);
             console.log(pedocount)
 
             if (pedocount < 0) {
-                shitecount = 3
+                shitecount = 3;
                 pedocount = 100;
                 clearInterval(brr);
 
@@ -440,35 +447,13 @@ function timer(nani) {
         flrbt = setInterval(function() {
 
             cssroot.style.setProperty('--count', pedocount + "%");
-            pedocount -= 1/3;
+            pedocount -= 100 / restminutesinput * 60;
             console.log(pomocount);
             console.log(pedocount)
 
             if (pedocount < 0) {
-                shitecount = 1
+                shitecount = 1;
                 pedocount = 100;
-                clearInterval(flrbt);
-
-            }
-
-        }, 1000);
-
-    } else if (nani = "开始" && shitecount == 3 && pomocount == 5) {
-
-        pisscount = 1;
-        toiletexplodcount = shitecount;
-        shitecount = 2;
-
-        flrbt = setInterval(function() {
-
-            cssroot.style.setProperty('--count', pedocount + "%");
-            pedocount -= 1/18;
-
-            if (pedocount < 0) {
-
-                shitecount = 1
-                pedocount = 100;
-                pomocount = 1;
                 clearInterval(flrbt);
 
             }
